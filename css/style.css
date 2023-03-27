@@ -1,0 +1,148 @@
+/* .heading-1{
+    color: blue;
+}
+
+.heading-2{
+    color: red;
+} */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #e5e5e5;
+    /* color: rgb(18, 48, 201); */
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width: 80%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box-1{
+    background-color: #555555;
+    color: rgb(255, 255, 255);
+    /* border-top: 5px blue solid;
+    border-right: 5px #ff009d dotted;
+    border-bottom: 5px #65ef15 double;
+    border-left: 5px #ff001e dashed; */
+    /* same as above */
+    border: 5px blue solid;
+    /* padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px; */
+    /* First param is for top and bottom sec param left and right*/
+    /* padding: 50px 100px;  */
+    /* 1st - Top , 2nd - Right , 3rd - Bottom, 4th - Left */
+    /* padding: 50px 70px 90px 110px; */
+    padding: 50px;
+    margin-top: 50px;
+}
+
+.box-1 h1{
+    color: red;
+    font-family: Tahoma;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: uppercase;
+    /* letter-spacing: 15px; */
+    word-spacing: 10px;
+}
+
+.box-2{
+    padding: 50px 30px;
+    background-color: blanchedalmond;
+    margin-top: 50px;
+    border: 5px solid #d08d09;
+    margin-bottom: 15px;
+}
+
+.box-2 h1{
+  color: grey;
+}
+
+.box-1 h1, .box-2 h1{
+    margin-bottom: 15px;
+}
+
+.box-2 p{
+    color: #4d4d4d;
+}
+
+.my-list{
+    border: 2px solid grey;
+    padding: 30px 0px;
+    border-radius: 15px;
+}
+
+.my-list h2{
+    text-align: center;
+}
+
+.my-list ul{
+    list-style: none;
+}
+
+.my-list ul li{
+    padding: 10px 0px 10px 10px;
+    border-bottom: 1px solid grey;
+}
+
+.form{
+    padding-top: 50px;
+}
+
+.form label{
+    display: block;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form input, .form textarea{
+    width: 100%;
+    padding: 10px;
+}
+
+.form-input{
+    margin-bottom: 15px;
+}
+
+.my-button{
+    /* width: 100%; */
+    padding: 20px 50px;
+    background-color: darkslategray;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.box{
+    margin-bottom: 20px;
+    width: 33%;
+    float: right;
+    background-color: grey;
+    padding: 10px;
+}
+
+.box h4{
+    color: #2f4f4f;
+    margin-bottom: 15px;
+}
+
+.test-box-1{
+    clear: both;
+}
+
+/* .my-list .tc{
+    text-align: center;
+} */
