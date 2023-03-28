@@ -1,0 +1,66 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    padding: 50px;
+}
+
+/* .parent-element ul{
+    background-color: grey;
+}
+
+.parent-element ul li{
+    margin-bottom: 15px;
+}
+
+.list-1{
+    background-color: blue;
+}
+.list-2{
+    background-color: rgb(255, 0, 153);
+}
+.list-3{
+    background-color: rgb(0, 255, 13);
+} */
+
+/* .parent-element ul li:first-child{
+    background-color: red;
+} */
+
+/* No Property lise this */
+/* .parent-element ul li:second-child{
+    background-color: #1e00ff;
+} */
+
+/* .parent-element ul li:nth-child(2){
+    background-color: #ff00bf;
+}
+.parent-element ul li:nth-child(3){
+    background-color: #6d0353;
+}
+
+.parent-element ul li:nth-child(10){
+    background-color: #bbff00;
+} */
+
+
+/* .parent-element ul li:nth-child(odd){
+    background-color: #6d0353;
+}
+.parent-element ul li:nth-child(even){
+    background-color: #1c2ef4;
+} */
+
+/* .inline-parent span:nth-child(2){
+    background-color: #6d0353;
+} */
+
+.parent-element div:nth-of-type(1) h1:nth-of-type(2){
+    background-color: green;
+}
+
+.parent-element div:nth-of-type(2){
+    background-color: rgb(30, 0, 128);
+}

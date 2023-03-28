@@ -1,0 +1,29 @@
+
+.box{
+    width: 300px;
+    height: 150px;
+    background-color: blue;
+    /* position: static; */
+    position: relative;
+    /* position: absolute; */
+    left: 50px;
+    top: 50px;
+}
+
+.inner-box{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.inner-box-2{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: fixed;
+    top: 100px;
+    right: 0px;
+}
