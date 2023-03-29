@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 80%;
+    margin: 0px auto;
+}
+
+/* Header Start */
+header{
+  background-color: #2034EA;
+  padding: 15px 0px;
+}
+header h4{
+  color: #ffffff;
+}
+/* Header End */
+
+
+/* Navigation start */
+nav{
+    background-color: #8894FF;
+    padding: 15px 0px;
+}
+
+nav a{
+    margin-left:50px;
+    color: #ffffff;
+}
+
+nav a:first-child{
+    margin-left: 0px;
+}
+
+/* Navigation end */
