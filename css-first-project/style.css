@@ -1,46 +1,182 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.container{
+.container {
     width: 80%;
     margin: 0px auto;
 }
 
 /* Header Start */
-header{
-  background-color: #2034EA;
-  padding: 15px 0px;
+header {
+    background-color: #2034EA;
+    padding: 15px 0px;
 }
-header h4{
-  color: #ffffff;
+
+header h4 {
+    color: #ffffff;
 }
+
 /* Header End */
 
 
 /* Navigation start */
-nav{
+nav {
     background-color: #8894FF;
     padding: 15px 0px;
 }
 
-nav a{
-    margin-left:50px;
+nav a {
+    margin-left: 50px;
     color: #ffffff;
 }
 
-nav a:first-child{
+nav a:first-child {
     margin-left: 0px;
 }
 
 /* Navigation end */
+
+/* Banner Start */
+.banner {
+    /* background-color: red; */
+    background: url("./img/bg.png") no-repeat center;
+    /* background-repeat: no-repeat;
+    background-position: center; */
+    background-size: cover;
+    padding: 150px 0px;
+}
+
+.banner-heading h1 {
+    font-size: 50px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.banner-heading span {
+    display: block;
+    text-align: center;
+}
+
+.banner-heading p {
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.btn {
+    text-align: center;
+}
+
+.banner-heading a {
+    padding: 15px 50px;
+    background-color: #71D761;
+    color: #ffffff;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+/* Banner End */
+
+/* jobs Start*/
+.jobs {
+    padding: 80px 0px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.box {
+    width: 30%;
+    float: left;
+    margin: 10px;
+    padding: 40px 25px;
+    color: #ffffff;
+    border-radius: 15px;
+}
+
+.box div {
+    margin: 10px 0px;
+}
+
+.clear {
+    clear: both;
+}
+
+.box:nth-child(1) {
+    background-color: #0C445C;
+}
+
+.box:nth-child(2) {
+    background-color: #5B2C98;
+}
+
+.box:nth-child(3) {
+    background-color: #7F3219;
+}
+
+/* jobs End*/
+
+/* Contact Form Start */
+.contact-form {
+    padding: 80px 0px;
+}
+
+.contact-form .container {
+    width: 30%;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+form input,
+textarea {
+    width: 100%;
+    padding: 12px 10px;
+}
+
+form button {
+    width: 100%;
+    padding: 8px;
+    background: blue;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+/* Contact Form End */
+
+/* Footer Start */
+footer {
+    background-color: #595959;
+    text-align: center;
+    padding: 15px 0px;
+    color: #ffffff;
+}
+
+/* Footer End */
+
+@media only screen and (max-width: 800px) {
+    .box {
+        width: 100%;
+    }
+}
