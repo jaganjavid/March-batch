@@ -1,0 +1,107 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Default Styles */
+.container{
+    width: 80%;
+    margin: 0px auto;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Default Styles */
+
+/* Header Start */
+header{
+    background-color: #750DB5;
+    color: #ffffff;
+    padding: 20px 0px;
+}
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-wrapper h4{
+    font-size: 24px;
+}
+
+.header-wrapper ul{
+    display: flex;
+    gap: 50px;
+}
+
+.header-wrapper ul li a{
+    color: #ffffff;
+}
+
+/* Header End */
+
+/* Banner Start */
+.banner-wrapper{
+    display: flex;
+    align-items: center;
+    padding: 100px 0px;
+}
+
+.banner-wrapper > div{
+    width: 50%;
+}
+
+.banner-wrapper h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.banner-wrapper h1 > span{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.banner-wrapper h1 > span:last-child span{
+    color: #750DB5;
+}
+
+.banner-wrapper p{
+    width: 70%;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.banner-wrapper > div:first-child > div {
+   display: flex;
+   align-items: center;
+   gap: 50px;
+}
+
+.banner-wrapper > div:first-child > div a:first-child{
+    background-color: #FFA92C;
+    padding: 15px 35px;
+    color: #ffffff;
+    border-radius: 12px;
+    /* x, y , blur, spread, color */
+    box-shadow: 2px 2px 8px 1px #FFA92C;  
+}
+
+.banner-wrapper > div:first-child > div a:last-child{
+    color: #111111;
+}
+
+
+/* Banner End */
