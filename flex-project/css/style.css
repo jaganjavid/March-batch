@@ -95,8 +95,12 @@ header{
     padding: 15px 35px;
     color: #ffffff;
     border-radius: 12px;
-    /* x, y , blur, spread, color */
-    box-shadow: 2px 2px 8px 1px #FFA92C;  
+    transition: all 1s;
+}
+
+.banner-wrapper > div:first-child > div a:first-child:hover{
+     /* x, y , blur, spread, color */
+     box-shadow: 2px 2px 8px 1px #FFA92C;  
 }
 
 .banner-wrapper > div:first-child > div a:last-child{
@@ -105,3 +109,83 @@ header{
 
 
 /* Banner End */
+
+/* The Jobs Start */
+.the-jobs{
+    padding: 80px 0px;
+}
+.the-jobs h2{
+    margin-bottom: 25px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.the-jobs-wrapper{
+    display: flex;
+    gap: 25px;
+}
+
+.the-jobs-wrapper>div{
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.the-jobs-wrapper>div>img{
+    margin-bottom: 10px;
+}
+
+.the-jobs-wrapper>div>span{
+  margin: 10px 0px;
+  display: inline-block;
+}
+
+.the-jobs-wrapper>div>p{
+    margin-bottom: 15px;
+}
+
+.the-jobs-wrapper>div:first-child{
+    background-color: #0C445C;
+}
+.the-jobs-wrapper>div:nth-child(2){
+    background-color: #5B2C98;
+}
+.the-jobs-wrapper>div:last-child{
+    background-color: #7F3219;
+}
+
+.the-jobs-wrapper h4{
+    font-size: 28px;
+}
+
+.the-jobs-wrapper>div>div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.the-jobs-wrapper>div>div a{
+    color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 12px;
+    background-color: transparent;
+    transition: all 0.30s;
+}
+
+.the-jobs-wrapper>div>div a:hover{
+    background-color: #FFA92C;
+    color: #111111;
+}
+
+/* The Jobs End */
+
+
+/* footer start */
+footer{
+    padding: 20px 0px;
+    text-align: center;
+    background-color: #D6D6D6;
+    color: #4254F4;
+}
+/* footer end */
