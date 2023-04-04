@@ -63,13 +63,16 @@ header{
     width: 50%;
 }
 
+.banner-wrapper img{
+    width: 100%;
+}
+
 .banner-wrapper h1{
-    font-size: 48px;
+    font-size: 38px;
     margin-bottom: 20px;
 }
 
 .banner-wrapper h1 > span{
-    display: block;
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -123,12 +126,15 @@ header{
 .the-jobs-wrapper{
     display: flex;
     gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .the-jobs-wrapper>div{
     color: #ffffff;
     padding: 20px;
     border-radius: 8px;
+    width: 30%;
 }
 
 .the-jobs-wrapper>div>img{
@@ -155,18 +161,18 @@ header{
 }
 
 .the-jobs-wrapper h4{
-    font-size: 28px;
+    font-size: 22px;
 }
 
 .the-jobs-wrapper>div>div{
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .the-jobs-wrapper>div>div a{
     color: #ffffff;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ffffff;
     border-radius: 12px;
     background-color: transparent;
@@ -189,3 +195,54 @@ footer{
     color: #4254F4;
 }
 /* footer end */
+
+/* Responsive Start */
+@media only screen and (min-width: 1200px){
+    .banner-wrapper h1{
+        font-size: 48px;
+    }
+    .banner-wrapper h1 > span{
+        display: block;
+    }
+    .the-jobs-wrapper h4{
+        font-size: 28px;
+    }
+    .the-jobs-wrapper>div>div{
+        gap: 20px;
+    }
+    .the-jobs-wrapper>div>div a{
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    .header-wrapper,
+    .banner-wrapper{
+        flex-direction: column;
+    }
+    .banner-wrapper>div,
+    .banner-wrapper p{
+        width: 100%;
+        text-align: center;
+    }
+    .banner-wrapper > div:first-child > div{
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .the-jobs-wrapper>div:first-child,
+    .the-jobs-wrapper>div:nth-child(2) {
+        width: 45%;
+    }
+    .the-jobs-wrapper>div:last-child {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .the-jobs-wrapper>div:first-child,
+    .the-jobs-wrapper>div:nth-child(2),
+    .the-jobs-wrapper>div:last-child {
+        width: 100%;
+    }
+}
+/* Responsive End */
