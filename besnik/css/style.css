@@ -1,0 +1,167 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    max-width: 1125px;
+    padding: 0px 15px;
+    margin: 0px auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Font Heading size */
+
+h1{
+    font-size: 50px;
+}
+
+h2{
+    font-size: 40px;
+}
+
+h3{
+    font-size: 30px;
+}
+
+h4{
+    font-size: 25px;
+}
+
+
+.btn a{
+    padding: 10px 30px;
+    display: inline-flex;
+    gap: 20px;
+    background-color: #231A36;
+    border-radius: 50px;
+    color: #ffffff;
+    transition: all 0.40s;
+    margin-top: 20px;
+}
+
+.btn a img{
+    transition: all 0.40s;
+}
+
+.btn a:hover{
+    background-color: #ff6f00;
+}
+
+.btn a:hover img{
+    transform: rotate(360deg);
+}
+
+/* Header Start */
+header {
+    padding: 10px 0px;
+}
+
+header, header a{
+    color: #ffffff;
+}
+
+header h4{
+    font-size: 25px;
+}
+
+.header-wrapper{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-wrapper ul{
+    display: flex;
+    gap: 25px;
+}
+
+
+/* Banner Start */
+
+.header-banner-wrapper{
+    background:url("../img/banner/bg.png") no-repeat center;
+    background-size: cover;
+}
+
+.banner-wrapper{
+    color: #ffffff;
+    text-align: center;
+    padding: 80px 0px;
+}
+
+.banner-wrapper h1, 
+.banner-wrapper p{
+    margin-bottom: 15px !important;
+}
+
+/* Banner End */
+
+/* Trusted Start */
+.trusted{
+    padding: 80px 0px;
+}
+
+.trusted p{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.trusted-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.trusted-wrapper>div{
+    width: 120px;
+}
+
+.trusted-wrapper>div img{
+    width: 100%;
+}
+
+/* Trusted End */
+
+/* Responsive Start */
+
+@media only screen and (min-width: 768px){
+    .banner-wrapper h1{
+        font-size: 95px;
+    }
+    .banner-wrapper h1 span{ 
+        display: block;
+    }
+    .banner-wrapper p{
+        width: 50%;
+        margin: 0px auto;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    .trusted-wrapper>div{
+        width: 80px;
+    }
+}
+@media only screen and (max-width: 576px){
+    .header-wrapper{ 
+        flex-direction: column;
+    }
+
+    .trusted-wrapper>div{
+        width: 30%;
+    }
+}
