@@ -69,6 +69,17 @@ h4{
     margin-bottom: 50px;
 }
 
+.sec-heading h2{
+    display: inline-block;
+    position: relative;
+}
+
+.sec-heading img{
+    position: absolute;
+    top: -25px;
+    right: -65px;
+}
+
 .sec-heading p{
     width: 70%;
     margin: 0px auto;
@@ -228,9 +239,91 @@ header h4{
 }
 /* Social Media End */
 
+/* Clients Start*/
+.clients{
+    padding: 80px 0px;
+    overflow: hidden;
+}
+
+.clients-wrapper>div:first-child p{
+    margin: 20px 0px 30px 0px;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.8;
+    color: #6D6D6D;
+}
+
+.clients-wrapper h4{
+    font-weight:500;
+}
+
+.clients-wrapper span{
+    color: #6D6D6D;
+}
+
+.clients-wrapper>div:last-child{
+    text-align: center;
+}
+
+/* Clients End*/
+
+/* Footer Start */
+.footer-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #E3E3EA;
+}
+
+.footer-wrapper ul {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-wrapper ul li a{
+    color: #111111;
+}
+
+.footer-wrapper>div{
+    display: flex;
+    gap: 25px;
+}
+
+.footer-wrapper>div i {
+    font-size: 18px;
+}
+
+footer p{
+    margin-top: 30px;
+    text-align: center;
+}
+/* Footer End */
+
 /* Responsive Start */
 
+/* .vf{
+    width: 300px;
+    height: 100px;
+    overflow: scroll;
+} */
+
+@media only screen and (min-width: 992px){
+    .clients-wrapper>div:last-child{
+        text-align: right;
+    }
+}
+
 @media only screen and (min-width: 768px){
+    .clients-wrapper{
+        display: flex;
+        align-items: center;
+    }
+
+    .clients-wrapper>div{
+        width: 50%;
+    }
+
     .sec-heading h2 span{
        display: block;
     }
@@ -282,6 +375,11 @@ header h4{
         margin-top: 50px;
     }
 
+    .clients-wrapper>div:first-child{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
 }
 
 @media only screen and (max-width: 576px){
@@ -296,5 +394,9 @@ header h4{
     .sm-wrapper>div{
         width: 50%;
         text-align: center;
+    }
+    .footer-wrapper {
+        flex-direction: column;
+        gap: 25px;
     }
 }
