@@ -267,6 +267,40 @@ header h4{
 
 /* Clients End*/
 
+/* News start */
+.newsletter{
+    padding: 80px 0px;
+    color: #ffffff;
+}
+
+.news-wrapper{
+    padding: 50px;
+    background:url("../img/newsletter/bg.png") no-repeat center;
+    background-size: cover;
+    text-align: center;
+    border-radius: 15px;
+    position: relative;
+}
+
+.float-img>img:last-child{
+    position: absolute;
+    bottom: 50px;
+    left: -50px;
+    z-index: -1;
+}
+.float-img>img:first-child{
+    position: absolute;
+    top: -35px;
+    right: -45px;
+    z-index: -1;
+}
+
+.news-wrapper h2, 
+.news-wrapper p{
+    margin-bottom: 15px;
+}
+/* News end */
+
 /* Footer Start */
 .footer-wrapper{
     display: flex;
@@ -295,7 +329,7 @@ header h4{
 }
 
 footer p{
-    margin-top: 30px;
+    margin: 30px 0px 15px 0px;
     text-align: center;
 }
 /* Footer End */
@@ -311,6 +345,11 @@ footer p{
 @media only screen and (min-width: 992px){
     .clients-wrapper>div:last-child{
         text-align: right;
+    }
+
+    .news-wrapper p{
+       width: 60%;
+       margin: 0px auto;
     }
 }
 

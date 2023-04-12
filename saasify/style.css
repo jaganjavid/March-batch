@@ -1,0 +1,135 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ul, h1, h2, h3, h4, h5, h6{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+/* Default Style */
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+
+.my-button a{
+    padding: 10px 30px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.white-btn a{
+    background-color: #ffffff;
+    color: #111111;
+}
+
+.color-btn a{
+    background: linear-gradient(#2066F9, #121BD0);
+    color: #ffffff;
+}
+
+/* Default Style */
+
+/* All Font size Start */
+h1{
+    font-size: 72px;
+    font-weight: 900;
+}
+/* All Font size End */
+
+/* Header Start */
+
+header{
+    background-color: blue;
+    color: #ffffff;
+    padding: 10px 0px;
+}
+
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-wrapper ul{
+    display: flex;
+    gap: 25px;
+}
+/* Header End */
+
+/* Banner Start */
+.banner{
+    padding: 100px 0px;
+    background-color: blue;
+    color: #ffffff;
+}
+
+.banner-input{
+    width: 100%;
+    margin: 0px auto;
+    position: relative;
+}
+.banner-wrapper input{
+    width: 100%;
+    padding: 15px 0px 15px 50px;
+    border: 0px;
+    border-radius: 30px;
+    background-color: #ffffff;
+}
+
+.banner-wrapper input:focus{
+    outline: none;
+}
+
+.banner-input img{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+.banner-input .my-button{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+
+}
+
+.banner-input .my-button a{
+    border-radius: 50px;
+}
+/* Banner End */
+
+@media only screen and (max-width: 768px){
+    header ul{
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    .banner-input{
+        width: 40% !important;
+    }
+}
+@media only screen and (min-width: 768px){
+    .banner-input{
+        width: 60%;
+    }
+}
