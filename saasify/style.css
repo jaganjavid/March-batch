@@ -45,6 +45,15 @@ a{
     color: #ffffff;
 }
 
+/* All section padding */
+.logos,
+.services{
+    padding: 100px 0px;
+}
+
+.services h2{
+    margin-bottom: 60px;
+}
 /* Default Style */
 
 /* All Font size Start */
@@ -52,12 +61,26 @@ h1{
     font-size: 72px;
     font-weight: 900;
 }
+
+h2{
+    font-size: 50px;
+}
 /* All Font size End */
 
 /* Header Start */
 
+main{
+    background: url("./img/banner/bg.png") no-repeat center;
+    background-size: cover;
+}
+
+
+.dashboard-img img{
+    width: 100%;
+}
+
 header{
-    background-color: blue;
+   
     color: #ffffff;
     padding: 10px 0px;
 }
@@ -76,8 +99,7 @@ header{
 
 /* Banner Start */
 .banner{
-    padding: 100px 0px;
-    background-color: blue;
+    padding: 100px 0px;;
     color: #ffffff;
 }
 
@@ -117,9 +139,64 @@ header{
 }
 /* Banner End */
 
+/* Logo Start */
+.logo-wrapper>div{
+  width: 120px;
+}
+
+.logo-wrapper>div img{
+    width: 100%;
+}
+/* Logo End */
+
+/* Services Start */
+.services a{
+    color: #0F0BC7;
+}
+
+.services>div>div:nth-child(2)>div>div{
+    padding: 30px 15px;
+    box-shadow: 0px 2px 5px 0px #11111142;
+    border-radius: 15px;
+    transform: translateY(0px);
+    transition: all 0.30s;
+}
+
+.services>div>div:nth-child(2)>div>div:hover{
+    box-shadow: 0px 5px 5px 0px #11111169;
+    transform: translateY(-20px);
+}
+/* Services End */
+
 @media only screen and (max-width: 768px){
     header ul{
         display: none !important;
+    }
+    h1{
+        font-size: 45px;
+    }
+    .banner{
+        padding: 75px 0px;
+    }
+
+    .logo-wrapper{
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .logo-wrapper>div{
+        width: 45%;
+        text-align: center;
+    }
+
+    .logo-wrapper>div img{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    h1{
+        font-size: 60px;
     }
 }
 
