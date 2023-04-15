@@ -47,7 +47,9 @@ a{
 
 /* All section padding */
 .logos,
-.services{
+.services,
+.powerful,
+.plan{
     padding: 100px 0px;
 }
 
@@ -159,6 +161,7 @@ header{
     box-shadow: 0px 2px 5px 0px #11111142;
     border-radius: 15px;
     transform: translateY(0px);
+    background-color: transparent;
     transition: all 0.30s;
 }
 
@@ -167,6 +170,88 @@ header{
     transform: translateY(-20px);
 }
 /* Services End */
+
+/* Plan Start */
+.plan-wrapper>div>div>div{
+    position: relative;
+    padding: 50px 10px;
+    border-radius: 15px;
+    box-shadow: 1px 0px 30px 0px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    transition: all 0.30s;
+}
+
+.plan-wrapper>div>div>div:hover{
+    background-color: blue;
+}
+
+
+.plan-wrapper>div>div>div>div{
+    padding-bottom: 35px;
+}
+
+.plan-wrapper>div>div>div>div:first-child{
+    border-bottom: 1px solid #727272;
+}
+
+.plan-wrapper>div>div>div>div h5{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.plan-wrapper h3{
+    color: blue;
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.plan-wrapper h3 span{
+    color: gray;
+    font-size: 12px;
+}
+
+.plan-wrapper ul{
+    margin-top: 30px;
+    min-height: 270px;
+}
+
+.plan-wrapper ul li{
+    margin-bottom: 30px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.tick-bg{
+    width: 30px;
+    height: 30px;
+    background:url("./img/plan/tick.svg") no-repeat center;
+}
+
+.plan-wrapper>div>div>div:hover .tick-bg{
+    background:url("./img/plan/tickwhite.svg") no-repeat center;
+}
+.plan-wrapper>div>div>div:hover{
+
+    color: #ffffff;
+}
+
+.plan-wrapper>div>div>div:hover .color-btn a {
+    background: #ffffff !important;
+    color: #333333;
+}
+.plan-wrapper>div>div>div:hover >div:first-child{
+    border-bottom: 1px solid #ffffff;
+}
+
+.plan-wrapper>div>div>div:hover h3,
+.plan-wrapper>div>div>div:hover h5,
+.plan-wrapper>div>div>div:hover h3 span{
+    color: #ffffff;
+}
+/* Plan End */
 
 @media only screen and (max-width: 768px){
     header ul{
@@ -197,6 +282,9 @@ header{
 @media only screen and (max-width: 992px){
     h1{
         font-size: 60px;
+    }
+    h2{
+        font-size: 40px; 
     }
 }
 
