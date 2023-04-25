@@ -223,12 +223,15 @@ footer ul li:not(footer ul li:last-child){
 /* Footer End */
 
 /* Copywrite Start*/
+
 .copy-write{
     background-color: #040335;
 }
+
 /* Copywrite End*/
 
 /* Plan Start */
+
 .plan-wrapper>div>div>div{
     position: relative;
     padding: 50px 10px;
