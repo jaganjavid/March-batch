@@ -8,6 +8,7 @@ let val;
 // Get the Array length
 val = number.length;
 
+
 // Check if is array
 val = Array.isArray(number)
 
