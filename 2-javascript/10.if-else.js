@@ -74,12 +74,14 @@ if(id <= 101){
 
 // IF ELSE
 
-const color = "dasdaD";
+const color = "assaasda";
 
-if(color === "red"){
+if("color" === "red"){
     console.log("Color is red")
 } else if(color === "blue"){
     console.log("Color is blue")
+} else if(color === "gray"){
+    console.log("Color is gray")
 } else {
     console.log("I dont Know the color");
 }
@@ -87,7 +89,7 @@ if(color === "red"){
 // LOGICAL - && OPERATOR BOTH VALUE TRUE OR FALSE
 
 const name = "Jagan";
-const age = 8;
+const age = 70;
 
 if(age > 0 && age < 12){
     console.log(`${name} is a child`);
@@ -96,3 +98,14 @@ if(age > 0 && age < 12){
 } else {
     console.log(`${name} is a adult`);
 }
+
+// OR - || CHECK ONLY ONE TRUE OR FALSE
+
+if(age < 16 || age > 65){
+    console.log(`${name} can not run the race`)
+} else {
+    console.log(`${name} can register for the race`)
+}
+
+// TERNARY OPERATOR
+console.log(100 === 100 ? "Correct" : "INCORRECT")
