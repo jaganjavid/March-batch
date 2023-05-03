@@ -18,8 +18,6 @@ items[0].textContent = "Task 1";
 //     item.style.background = "blue";
 // })
 
-
-
 // document.querySelectorAll();
 
 const liItems = document.querySelectorAll("li"); // NODELIST
