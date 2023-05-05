@@ -20,8 +20,6 @@ const taskInput = document.getElementById("task");
 
 
 
-
-
 function runEvent(event){
     // console.log(event);
   console.log(`Event Type ${event.type}`); 

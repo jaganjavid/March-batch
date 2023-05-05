@@ -14,6 +14,5 @@ function onClick(event){
     val = event.target.className;
     val = event.target.classList; // DOMTOKENLIST
 
-
     console.log(val);
 }
