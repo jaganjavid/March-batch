@@ -37,11 +37,13 @@ function getTasks(){
   }
 
   if(tasks.length > 0){
+
         document.querySelector(".card-action").style.display = "block";
         document.querySelector("h4").style.display = "none";
         
         tasks.forEach(function(item){
-            // CREATE A LI ELEMENT
+
+        // CREATE A LI ELEMENT
         const li = document.createElement("li");
     
         // ADD CLASS
@@ -153,7 +155,6 @@ function removeTask(e){
 }
 
 function removeFromLs(taskElement){
-
     
     let tasks;
   
@@ -163,24 +164,32 @@ function removeFromLs(taskElement){
         tasks = JSON.parse(localStorage.getItem("tasks"));
     }
 
-   
+
     tasks.forEach(function(task, index){
         if(taskElement.textContent === task){
             tasks.splice(index, 1);
         } 
     })
+
+    
     
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    
+    if(tasks.length === 0){
+        window.location.reload();
+    }
     
 }
 
 
 // CLEAR TASK
 function clearTask(){
-    taskList.innerHTML = "";
-    // Clear from LS
-    clearTaskFromLS()
     
+    // Clear from LS
+    clearTaskFromLS();
+
+    window.location.reload();
+   
 }
 
 
