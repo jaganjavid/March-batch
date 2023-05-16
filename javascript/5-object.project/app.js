@@ -1,3 +1,8 @@
+
+
+
+
+
 // BOOK CONSTRUCTOR
 
 function Book(title, author, isbn){
@@ -33,6 +38,7 @@ function UI(){
     }
 
     // SHOW ALERT
+
     UI.prototype.showAlert = function(message, className){
 
         // CREATE A DIV ELEMENET
@@ -54,6 +60,7 @@ function UI(){
     }
 
     // CLEAR FILEDS
+
     UI.prototype.clearFields = function(){
         document.querySelector("#title").value = "";
         document.querySelector("#author").value = "";
@@ -61,6 +68,7 @@ function UI(){
     }
 
     // DELETE BOOKS
+    
     UI.prototype.deleteBook = function(target){
         if(target.className === 'delete'){
             // console.log(target.parentElement);
