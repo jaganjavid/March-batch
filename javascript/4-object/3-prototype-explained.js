@@ -12,11 +12,11 @@ Person.prototype.getFullName = function(){
     return this.firstName + " " + this.lastName;
 }
 
+
+console.log(javid.getFullName())
+console.log(josh.getFullName())
+
 // DONT USE THIS
 // Person.prototype.__proto__.getFullName = function(){
 //     return this.firstName + " " + this.lastName;
 // }
-
-
-console.log(javid.getFullName());
-console.log(josh)

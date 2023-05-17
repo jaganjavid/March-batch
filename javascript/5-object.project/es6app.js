@@ -71,8 +71,6 @@ class UI {
 }
 
 
-
-
 class Store {
     static getBooks(){
         let books;

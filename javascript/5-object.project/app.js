@@ -1,8 +1,5 @@
 
 
-
-
-
 // BOOK CONSTRUCTOR
 
 function Book(title, author, isbn){
