@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Jagan",
+        "role" : "Web Developer"
+    },
+    {
+        "name": "Akash",
+        "role" : "UI/UX"
+    },
+    {
+        "name": "Arun",
+        "role" : "Dancer"
+    }
+
+]
