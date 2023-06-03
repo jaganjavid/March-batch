@@ -10,6 +10,7 @@ const input = document.querySelector("#searchUser");
 const form = document.querySelector("#gitForm");
 
 form.addEventListener("submit", (e) => {
+  
   e.preventDefault();
 
   const user = input.value;
@@ -17,13 +18,12 @@ form.addEventListener("submit", (e) => {
   if(user !== ""){
     github.getUser(user).then(data => {
         if(data.profile.message === "Not Found"){
-            alert("There is no user with this username")
+            ui.showAlert("There is no user with this username", "alert alert-danger");
         } else {
             ui.showProfile(data.profile);
         }
     });
   }
-
 
 })
 

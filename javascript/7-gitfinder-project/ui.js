@@ -30,4 +30,35 @@ class UI{
         </div>
        `
     }
+
+
+    showAlert(message, className){
+
+        this.clearAlert();
+
+        const div = document.createElement("div");
+
+        div.className = className;
+
+        div.appendChild(document.createTextNode(message));
+
+        const container = document.querySelector(".git-container");
+        const search = document.querySelector(".search-body");
+        
+
+        container.insertBefore(div, search);
+
+        // Set time out
+        setTimeout(() => {
+            this.clearAlert();
+        }, 3000)
+    }
+
+    clearAlert(){
+        const currentAlert = document.querySelector(".alert");
+
+        if(currentAlert){
+            currentAlert.remove();
+        }
+    }
 }
