@@ -67,6 +67,38 @@ const ItemCtrl = (function(){
             }
 
             return total;
+        },
+        getItemById: function(id){
+            let found = null;
+
+            // Loop through items
+            data.items.forEach(function(item){
+                if(item.id === id){
+                    found = item;
+                }
+            })
+
+            return found;
+        },
+        setCurrentItem: function(editableItem){
+            data.currentItem = editableItem;
+        },
+        getCurrentItem:function(){
+            return data.currentItem;
+        },
+        updateItem: function(name, money){
+            money = parseInt(money);
+            let found = null;
+
+            data.items.forEach(function(item){
+                if(item.id === data.currentItem.id){
+                    item.name = name;
+                    item.money = money;
+                    found = item;
+                }
+            })
+
+            return found;
         }
     }
 
@@ -137,10 +169,34 @@ const UICtrl = (function(){
     clearInputState: function(){
         document.querySelector("#item-name").value = "";
         document.querySelector("#item-money").value = "";
+    },
+    addItemToForm: function(){
+        document.querySelector("#item-name").value = ItemCtrl.getCurrentItem().name;
+        document.querySelector("#item-money").value = ItemCtrl.getCurrentItem().money;
+    },
+    updateListItem: function(item){
+
+        let listItems = document.querySelectorAll("li");
+
+        listItems.forEach(function(listItem){
+
+            const itemID = listItem.getAttribute("id");
+
+            if(itemID === `item-${item.id}`){
+                document.querySelector(`#${itemID}`).innerHTML = `
+                    <strong>${item.name} : <em>${item.money}$</em></strong>
+                    <a href="#" class="secondary-content edit-item">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                `
+            }
+        })
     }
 
   }
 })()
+
+
 
 
 const App = (function(ItemCtrl, UICtrl){
@@ -152,6 +208,9 @@ const App = (function(ItemCtrl, UICtrl){
 
         // ITEM TO EDIT
         document.querySelector(".collection").addEventListener("click", itemToEdit);
+
+        // Update Item Event
+        document.querySelector(".update-btn").addEventListener("click", itemUpdateSubmit);
     }
 
 
@@ -190,13 +249,53 @@ const App = (function(ItemCtrl, UICtrl){
         e.preventDefault();
 
         if(e.target.parentElement.classList.contains("edit-item")){
-            
+    
             // SHOW ALL BUTTON
             UICtrl.showEditState();
+
+            const listID = e.target.parentElement.parentElement.id;
+
+            // BREAK INTO AN ARRAY
+            const listArr = listID.split("-");
+
+            // GET THE AUTUAL ID
+            const id = parseInt(listArr[1]);
+
+            // GET ITEM
+            const itemToEdit = ItemCtrl.getItemById(id);
+
+            // SET CURRENT ITEM
+            ItemCtrl.setCurrentItem(itemToEdit);
+
+            // ADD ITEM TO FROM
+            UICtrl.addItemToForm();
+
+
         }
     
     }
 
+    const itemUpdateSubmit = function(e){
+        e.preventDefault(e);
+
+        // GET ITEM INPUT
+        const input = UICtrl.getItemInput();
+
+        // UPDATE ITEM
+        const updateItem = ItemCtrl.updateItem(input.name, input.money);
+
+        // UPDATE UI
+        UICtrl.updateListItem(updateItem);
+
+        // GET TOTAL MONEY 
+        const totalMoney = ItemCtrl.getTotalMoney(); 
+        
+        // ADD TOTAL MONEY TO UI
+        UICtrl.showTotalMoney(totalMoney);
+
+         // CLEAR A UI INPUT
+         UICtrl.clearInputState();
+    }
 
     return {
         init: function(){
