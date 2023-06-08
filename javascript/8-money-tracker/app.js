@@ -9,6 +9,8 @@
 
 // ITEM CONTROLLER
 
+
+
 const ItemCtrl = (function(){
 
 
@@ -99,10 +101,27 @@ const ItemCtrl = (function(){
             })
 
             return found;
+        },
+        deleteItem: function(id){
+            // GET IDS
+            const ids = data.items.map(function(item){
+                return item.id;
+            })
+
+            // GET INDEX
+            const index = ids.indexOf(id);
+
+            data.items.splice(index, 1);
+
+        },
+        clearAllItems: function(){
+            data.items = [];
         }
     }
 
 })()
+
+
 
 
 // UI CONTROLLER
@@ -191,12 +210,33 @@ const UICtrl = (function(){
                 `
             }
         })
+    },
+    deleteListItem: function(id){
+        const itemID = `#item-${id}`;
+        const item = document.querySelector(itemID);
+        item.remove();
+    },
+    clearItems: function(){
+       const itemLi = document.querySelectorAll("li");
+       itemLi.forEach(function(li){
+         li.remove();
+       })
+    },
+    addActive: function(){
+        const lables = document.querySelectorAll("label");
+        lables.forEach(function(lable){
+          lable.classList.add("active");
+        })
+    },
+    removeActive: function(){
+        const lables = document.querySelectorAll("label");
+        lables.forEach(function(lable){
+          lable.classList.remove("active");
+        })
     }
 
   }
 })()
-
-
 
 
 const App = (function(ItemCtrl, UICtrl){
@@ -211,6 +251,20 @@ const App = (function(ItemCtrl, UICtrl){
 
         // Update Item Event
         document.querySelector(".update-btn").addEventListener("click", itemUpdateSubmit);
+
+        // Delete Item Event
+        document.querySelector(".delete-btn").addEventListener("click", itemDeleteSubmit);
+
+        // Back Item Event
+        document.querySelector(".back-btn").addEventListener("click", function(e){
+            e.preventDefault();
+            UICtrl.clearEditState();
+            UICtrl.clearInputState();
+            UICtrl.removeActive();
+        })
+
+        // Clear Item Event
+        document.querySelector(".clear-btn").addEventListener("click", clearAllItemsClick);
     }
 
 
@@ -237,6 +291,9 @@ const App = (function(ItemCtrl, UICtrl){
         // ADD TOTAL MONEY TO UI
         UICtrl.showTotalMoney(totalMoney);
 
+        // Remove Active class
+        UICtrl.removeActive();
+
         // CLEAR A UI INPUT
         UICtrl.clearInputState();
         
@@ -252,6 +309,9 @@ const App = (function(ItemCtrl, UICtrl){
     
             // SHOW ALL BUTTON
             UICtrl.showEditState();
+
+            // Add active Class
+            UICtrl.addActive();
 
             const listID = e.target.parentElement.parentElement.id;
 
@@ -293,8 +353,66 @@ const App = (function(ItemCtrl, UICtrl){
         // ADD TOTAL MONEY TO UI
         UICtrl.showTotalMoney(totalMoney);
 
-         // CLEAR A UI INPUT
-         UICtrl.clearInputState();
+        // CLEAR A UI INPUT
+        UICtrl.clearInputState();
+
+        // Clear All button
+        UICtrl.clearEditState();
+
+         // Remove Active class
+         UICtrl.removeActive();
+    }
+
+    const itemDeleteSubmit = function(e){
+        e.preventDefault();
+        // GET CURRENT ITEM
+        const currentItem = ItemCtrl.getCurrentItem();
+
+       // Delete from the data structure
+       ItemCtrl.deleteItem(currentItem.id); 
+
+       // Delete from ui
+       UICtrl.deleteListItem(currentItem.id);
+
+        // GET TOTAL MONEY 
+        const totalMoney = ItemCtrl.getTotalMoney(); 
+        
+        // ADD TOTAL MONEY TO UI
+        UICtrl.showTotalMoney(totalMoney);
+
+        // CLEAR A UI INPUT
+        UICtrl.clearInputState();
+
+        // Clear All button
+        UICtrl.clearEditState();
+
+         // Remove Active class
+         UICtrl.removeActive();
+
+         if(ItemCtrl.getItems().length === 0){
+            document.querySelector(".no-item").style.display = "block";
+         }
+    }
+
+    const clearAllItemsClick = function(e){
+        e.preventDefault();
+
+       // Clear All From data structure
+       ItemCtrl.clearAllItems(); 
+
+       // CLear All from UI
+       UICtrl.clearItems();
+
+        // GET TOTAL MONEY 
+        const totalMoney = ItemCtrl.getTotalMoney(); 
+        
+        // ADD TOTAL MONEY TO UI
+        UICtrl.showTotalMoney(totalMoney);
+
+        // CLEAR A UI INPUT
+        UICtrl.clearInputState();
+
+        document.querySelector(".no-item").style.display = "block";
     }
 
     return {
