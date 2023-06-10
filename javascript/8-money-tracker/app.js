@@ -2,9 +2,70 @@
 
 
 // STORAGE CONTROLLER
-// const StorageCtrl = (function(){
-//   console.log("Im Storage")
-// })();
+const StorageCtrl = (function(){
+   return{
+     storeItem: function(item){
+       let items;
+
+        // Check if any items in LS
+        if(localStorage.getItem("items") === null){
+            items = [];
+
+            // Push a new item
+            items.push(item);
+        } else{
+            // Get the existing data From LS
+            items = JSON.parse(localStorage.getItem("items"));
+
+            // Push the new item
+            items.push(item);
+        }    
+
+        // SET LS 
+        localStorage.setItem("items", JSON.stringify(items));
+
+     },
+     getItems: function(){
+        let items;
+
+        // Check if any items in LS
+        if(localStorage.getItem("items") === null){
+            items = [];
+        } else{
+            // Get the existing data From LS
+            items = JSON.parse(localStorage.getItem("items"));
+        }   
+        
+        return items;
+     },
+     updateItemLS: function(updatedItem){
+        // Get the existing data From LS
+       let items = JSON.parse(localStorage.getItem("items"));
+
+       items.forEach(function(item, index){
+        if(updatedItem.id === item.id){
+            items.splice(index, 1, updatedItem);
+        }
+       })
+
+       // SET LS 
+       localStorage.setItem("items", JSON.stringify(items));
+     },
+     deleteItemLS: function(id){
+         // Get the existing data From LS
+        let items = JSON.parse(localStorage.getItem("items"));
+
+        items.forEach(function(item, index){
+            if(id === item.id){
+                items.splice(index, 1);
+            }
+        })
+
+       // SET LS 
+       localStorage.setItem("items", JSON.stringify(items));
+     }
+   }
+})();
 
 
 // ITEM CONTROLLER
@@ -22,11 +83,12 @@ const ItemCtrl = (function(){
 
     //  DATA STRUCTURE / STATE
     const data = {
-        items: [
-            {id:0, name:"clothes", money: 200},
-            {id:1, name:"shopping", money: 500},
-            {id:2, name:"food", money: 700},
-        ],
+        // items: [
+        //     {id:0, name:"clothes", money: 200},
+        //     {id:1, name:"shopping", money: 500},
+        //     {id:2, name:"food", money: 700},
+        // ],
+        items: StorageCtrl.getItems(),
         currentItem:null,
         totalMoney:0
     }
@@ -239,7 +301,7 @@ const UICtrl = (function(){
 })()
 
 
-const App = (function(ItemCtrl, UICtrl){
+const App = (function(ItemCtrl, UICtrl, StorageCtrl){
 
     const loadEventListeners = function(){
 
@@ -291,11 +353,16 @@ const App = (function(ItemCtrl, UICtrl){
         // ADD TOTAL MONEY TO UI
         UICtrl.showTotalMoney(totalMoney);
 
+        // Store into LS
+        StorageCtrl.storeItem(newItem);
+
         // Remove Active class
         UICtrl.removeActive();
 
         // CLEAR A UI INPUT
         UICtrl.clearInputState();
+
+        document.querySelector(".no-item").style.display = "none";
         
        }
 
@@ -347,6 +414,10 @@ const App = (function(ItemCtrl, UICtrl){
         // UPDATE UI
         UICtrl.updateListItem(updateItem);
 
+        // Update Item LS
+
+        StorageCtrl.updateItemLS(updateItem);
+
         // GET TOTAL MONEY 
         const totalMoney = ItemCtrl.getTotalMoney(); 
         
@@ -373,6 +444,9 @@ const App = (function(ItemCtrl, UICtrl){
 
        // Delete from ui
        UICtrl.deleteListItem(currentItem.id);
+
+       // Delete from LS
+       StorageCtrl.deleteItemLS(currentItem.id);
 
         // GET TOTAL MONEY 
         const totalMoney = ItemCtrl.getTotalMoney(); 
@@ -402,6 +476,9 @@ const App = (function(ItemCtrl, UICtrl){
 
        // CLear All from UI
        UICtrl.clearItems();
+
+        // clear from LS
+       localStorage.removeItem("items");
 
         // GET TOTAL MONEY 
         const totalMoney = ItemCtrl.getTotalMoney(); 
@@ -440,6 +517,6 @@ const App = (function(ItemCtrl, UICtrl){
         }
     }
     
-})(ItemCtrl, UICtrl);
+})(ItemCtrl, UICtrl, StorageCtrl);
 
 App.init();
