@@ -2,8 +2,8 @@
 import { useState } from 'react';
 
 import Header from './components/Header';
-import FeedbackItem from './components/FeedbackItem';
 import FeedbackList from './components/FeedbackList';
+import FeedbackStats from './components/FeedbackStats';
 
 
 function App() {
@@ -30,7 +30,8 @@ function App() {
     <div>
       <Header/>
       <div className="container">
-          <FeedbackList feedback={feedback}/>  
+          <FeedbackStats feedback={feedback}/>
+          <FeedbackList feedback={feedback}/>
       </div> 
     </div>
   )

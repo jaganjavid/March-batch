@@ -108,6 +108,11 @@ input:focus {
   right: 40px;
 }
 
+.feedback-stats{
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn {
   color: #fff;
   border: 0;
@@ -118,6 +123,7 @@ input:focus {
   cursor: pointer;
   margin-top: 10px;
 }
+
 
 .btn-primary {
   background-color: #202142;
