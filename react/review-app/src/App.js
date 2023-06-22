@@ -2,6 +2,7 @@
 import { useState } from 'react';
 
 import Header from './components/Header';
+import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
 
@@ -26,12 +27,20 @@ function App() {
     },
   ])
 
+  const handleDelete = (id) => {
+    if(window.confirm("Are you sure you want to delete?")){
+      setFeedback(feedback.filter((item) => item.id !== id));
+    }
+  }
+
+
   return (
     <div>
       <Header/>
-      <div className="container">
+      <div className="container"> 
+          <FeedbackForm/>
           <FeedbackStats feedback={feedback}/>
-          <FeedbackList feedback={feedback}/>
+          <FeedbackList feedback={feedback} handleDelete={handleDelete}/>
       </div> 
     </div>
   )
