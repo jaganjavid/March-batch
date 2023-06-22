@@ -6,23 +6,23 @@
 
 // String
 const name = "Jagan";
-console.log(name);
+// console.log(name);
 
 // Number
 const age = 25;
-console.log(age);
+// console.log(age);
 
 // Boolean
 const hasKids = false;
-console.log(hasKids);
+// console.log(hasKids);
 
 // Null
 const gun = null;
-console.log(gun);
+// console.log(gun);
 
 // Undefined
 let undef;
-console.log(undef);
+// console.log(undef);
 
 
 // console.log(typeof undef);
@@ -36,13 +36,15 @@ console.log(undef);
 // Reference Types - objects
 
 // Array
-
 const myArr = ["jagan","javid", 25, true, null, undefined];
-console.log(myArr);
+
+
+
+// console.log(myArr);
 
 // Object
 
-// Key:Value or Name:Value pair
+// Key:Value or Name:Value pairs
 
 const car = {
     name: "BMW",
@@ -57,10 +59,8 @@ const car = {
     }
 }
 
-console.log(car);
+car.start();
 
-
-
-console.log(typeof myArr);
+// console.log(typeof myArr);
 
 
