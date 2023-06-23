@@ -27,6 +27,10 @@ function App() {
     },
   ])
 
+  const addFeedback = (newFeedBack) => {
+    setFeedback([newFeedBack, ...feedback]);
+  }
+
   const handleDelete = (id) => {
     if(window.confirm("Are you sure you want to delete?")){
       setFeedback(feedback.filter((item) => item.id !== id));
@@ -38,7 +42,7 @@ function App() {
     <div>
       <Header/>
       <div className="container"> 
-          <FeedbackForm/>
+          <FeedbackForm handleAdd={addFeedback}/>
           <FeedbackStats feedback={feedback}/>
           <FeedbackList feedback={feedback} handleDelete={handleDelete}/>
       </div> 
