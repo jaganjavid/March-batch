@@ -6,8 +6,11 @@ import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
 
+import { FeedbackProvider } from './context/FeedbackContext';
+
 
 function App() {
+
 
   const [feedback, setFeedback] = useState([
     {
@@ -27,26 +30,16 @@ function App() {
     },
   ])
 
-  const addFeedback = (newFeedBack) => {
-    setFeedback([newFeedBack, ...feedback]);
-  }
-
-  const handleDelete = (id) => {
-    if(window.confirm("Are you sure you want to delete?")){
-      setFeedback(feedback.filter((item) => item.id !== id));
-    }
-  }
-
 
   return (
-    <div>
+    <FeedbackProvider>
       <Header/>
       <div className="container"> 
-          <FeedbackForm handleAdd={addFeedback}/>
-          <FeedbackStats feedback={feedback}/>
-          <FeedbackList feedback={feedback} handleDelete={handleDelete}/>
+          <FeedbackForm/>
+          <FeedbackStats/>
+          <FeedbackList/>
       </div> 
-    </div>
+    </FeedbackProvider>
   )
 }
 

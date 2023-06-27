@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const RatingSelect = ({ select, changeState}) => {
+const RatingSelect = ({ select }) => {
 
     const [selected, setSelected] = useState(1);
 
