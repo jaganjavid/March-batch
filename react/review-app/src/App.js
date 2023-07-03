@@ -8,6 +8,10 @@ import FeedbackStats from './components/FeedbackStats';
 
 import { FeedbackProvider } from './context/FeedbackContext';
 
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+import About from './pages/About';
+
 
 function App() {
 
@@ -34,11 +38,30 @@ function App() {
   return (
     <FeedbackProvider>
       <Header/>
+      <BrowserRouter>
       <div className="container"> 
-          <FeedbackForm/>
-          <FeedbackStats/>
-          <FeedbackList/>
+         <Routes>
+           <Route path='/' element={
+             <>
+              <FeedbackForm/>
+              <FeedbackStats/>
+              <FeedbackList/>
+             </>
+           }>
+           </Route>
+           <Route path='/about' element={<About/>}>
+           </Route>
+         </Routes>
+          
       </div> 
+      <div className='about'>
+        <Link to='/about'>Go to about</Link>
+      </div>
+      </BrowserRouter>
+      
+
+    
+      
     </FeedbackProvider>
   )
 }

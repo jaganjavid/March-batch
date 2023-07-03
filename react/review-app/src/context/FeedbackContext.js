@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const FeedbackContext = createContext();
 
@@ -32,14 +33,26 @@ export const FeedbackProvider = ({children}) => {
       edit: false
     })
 
+    // Add Feedback
     const addFeedback = (newFeedBack) => {
+      newFeedBack.id = uuidv4();
       setFeedback([newFeedBack, ...feedback]);
+      console.log("add");
     }
 
+    // Delete Feedback 
+    const deleteFeedback = (id) => {
+      if(window.confirm("Are you sure you want to delete?")){
+            setFeedback(feedback.filter((item) => item.id !== id));
+      }
+    } 
+
+    // Update Feedback
     const updateFeedback = (id, updItem) => {
-      console.log(id, updItem);
+      setFeedback(feedback.map((item) => item.id === id ? {...item, ...updItem} : item));
     }
 
+    // Check if item is true for edit state
     const editFeedback = (item) => {
       setFeedbackEdit({
         item:item,
@@ -47,15 +60,6 @@ export const FeedbackProvider = ({children}) => {
       })
     }
     
-
-    const deleteFeedback = (id) => {
-        if(window.confirm("Are you sure you want to delete?")){
-              setFeedback(feedback.filter((item) => item.id !== id));
-        }
-    }
-    
-
-   
 
     return (
     <FeedbackContext.Provider value={{
