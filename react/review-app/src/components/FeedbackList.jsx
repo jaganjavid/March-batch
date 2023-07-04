@@ -5,19 +5,20 @@ import FeedbackContext from "../context/FeedbackContext";
 
 const FeedbackList = () => {
 
-  const {feedback} = useContext(FeedbackContext);
+  const {feedback,isLoading} = useContext(FeedbackContext);
 
-  if(!feedback || feedback.length === 0){
+  if(!isLoading && (!feedback || feedback.length === 0)){
     return <p>No Feedback Yet</p>
   }
 
-  return (
+  return isLoading ? <h3>Loading...</h3> : (
     <div className='feedback-list'>
-        {feedback.map((item) => (
-           <FeedbackItem key={item.id} item={item}/>
-        ))}
+          {feedback.map((item) => (
+            <FeedbackItem key={item.id} item={item}/>
+          ))}
     </div>
   )
+
 }
 
 FeedbackList.propTypes = {
