@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -9,7 +10,6 @@ const Login = () => {
     email:"jaganjavid@gmail.com",
     password:"12345678",
   })
-
 
   const {email, password} = formData;
 
@@ -30,10 +30,11 @@ const Login = () => {
 
     if(userCredential.user){
       navigate("/");
+      toast.success("You are logged in succesfully");
     }
 
    }catch(error){
-     console.log(error.message)
+     toast.error("Bad user crediantial");
    }
   }
 
@@ -70,9 +71,15 @@ const Login = () => {
         </form>
        </div>
 
-       <p className='mt-5'>
-        Already have an Account ? <Link to="/auth/login" className="text-sky-500">Login</Link>
-       </p>
+       <div className="flex justify-between	items-center mt-5">
+        <p>
+          Already have an Account ? <Link to="/auth/login" className="text-sky-500">Login</Link>
+        </p>
+
+        <p>{<Link to={"/auth/ForgotPassword"} className="text-yellow-100">Forgot Password</Link>}</p>
+       </div>
+
+       
     </div>
   )
 }

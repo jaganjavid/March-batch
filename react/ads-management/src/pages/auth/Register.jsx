@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { auth, db } from "../../FirebaseConfig";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
@@ -50,10 +51,19 @@ const Register = () => {
 
     await setDoc(doc(db, "users", user.uid), formDataCopy);
 
-    navigate("/")
+    toast.success("Your account created Successfully");
+
+    navigate("/");
 
    }catch(error){
-     console.log(error);
+    console.log(error.code);
+
+    if(error.code === "auth/email-already-in-use"){
+      toast.error("Email already in use");
+    } else{
+      toast.error("Something went worng while registration");
+    }
+   
    }
   }
 
