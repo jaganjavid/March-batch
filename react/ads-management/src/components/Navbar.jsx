@@ -34,14 +34,13 @@ const Navbar = () => {
            </div>
             </div>
             <div className="flex-none">
-            { user ? (
-            <div className="flex gap-10 items-center">
-              <p>
-                <Link className="hover:text-white" to={`/profile/${user.uid}`}>Profile</Link>
-              </p>
-              <button className="btn btn-outline btn-white" onClick={ handleLogout }>Logout</button>
-            </div>
-            )
+            { user ? 
+             (
+              <div className="flex items-center gap-5">
+                <p><Link to={`/profile/${user.uid}`}>Profile</Link></p>
+                <button className="btn btn-outline btn-white" onClick={ handleLogout }>Logout</button>
+              </div>
+             )
             : (
               <ul className="menu menu-horizontal px-1">
                 <li><Link to={"/auth/register"}>Register</Link></li>
