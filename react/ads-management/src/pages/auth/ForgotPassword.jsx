@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { auth } from "../../FirebaseConfig";
 import { sendPasswordResetEmail } from "firebase/auth";
 
@@ -9,7 +9,6 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");  
   const [success, setSuccess] = useState(false);
 
-  const navigate = useNavigate();
 
   const handleSubmit = async(e) => {
    e.preventDefault();
