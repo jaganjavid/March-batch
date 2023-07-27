@@ -2,15 +2,14 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { auth, db, storage } from "../FirebaseConfig";
 import { useParams } from 'react-router-dom';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import girl from "../asset/girl.jpeg";
 import { v4 as uuidv4 } from "uuid";
 
 const Profile = () => {
 
-
     const { id } = useParams();
-    
+
     const [user, setUser] = useState();
 
     const [img, setImg] = useState("");
@@ -23,19 +22,33 @@ const Profile = () => {
         }
     }
 
+
     const uplodeImage = async () => {
         try{
             // Create a image file
             const imgRef = ref(storage, `profile/${uuidv4()}-${img.name}`)
 
+            if(user.photoUrl){
+                await deleteObject(ref(storage, user.photoPath))
+            }
+
             // uplode image
+            const result = await uploadBytes(imgRef, img);
 
             // get the download url
+            const url = await getDownloadURL(ref(storage, result.ref.fullPath));
+
+            console.log(url);
 
             // update user doc
+            await updateDoc(doc(db, "users", auth.currentUser.uid), {
+                photoUrl: url,
+                photoPath: result.ref.fullPath
+            })
             
+            setImg("");
         }catch(error){
-            console.log(error)
+            console.log(error);
         }
     }
    
@@ -45,7 +58,8 @@ const Profile = () => {
        if(img){
         uplodeImage();
        }
-    }, [])
+
+    }, [img])
 
 
    
@@ -57,7 +71,8 @@ const Profile = () => {
             <div className='md:col-span-1'>
                 <div className="avatar block">
                     <div className="w-24 rounded-full">
-                        <img src={girl} />
+                        {user.photoUrl ? <img src={user.photoUrl} />
+                        : <img src={girl} />}
                     </div>
                 </div>
                 <details className="dropdown mb-32 mt-4">
@@ -80,7 +95,7 @@ const Profile = () => {
                 </details>
             </div>
             <div className='md:col-span-2'>
-                <p>{user.name}</p>
+                <p>Jagan</p>
                 <p>{uuidv4()}</p>
             </div>
         </div>
