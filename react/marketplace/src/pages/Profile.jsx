@@ -1,8 +1,16 @@
-import React from 'react'
+import { Container} from "@mantine/core"
+
 
 const Profile = () => {
+
+
   return (
-    <div>Profile</div>
+    <Container size="lg">
+      <div className="profile">
+         <h1></h1>
+         <p></p>
+      </div>
+    </Container>
   )
 }
 

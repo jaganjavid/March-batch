@@ -3,7 +3,10 @@ import { useState } from 'react';
 // import { useForm } from '@mantine/form';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
+import { doc, setDoc, serverTimestamp} from "firebase/firestore"; 
 import { db } from '../firebase-config';
+
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
 
@@ -40,14 +43,16 @@ const SignUp = () => {
         displayName: name
       })
 
-      console.log(user);
+      const formDataCopy = {...formData};
+      delete formDataCopy.password
+      formDataCopy.timestamp = serverTimestamp();
 
+      await setDoc(doc(db, "users", user.uid), formDataCopy);
+     
       navigate("/explore");
+      
     }catch(error){
-      const errorCode = error.code;
-      const errorMessage = error.message;
-
-      console.log(errorCode, errorMessage);
+      toast.error("Something went worng try again");
     }
   }
 
