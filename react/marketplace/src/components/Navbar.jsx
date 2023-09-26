@@ -1,15 +1,20 @@
 import { Link } from 'react-router-dom'
-import { Container, Menu, Button } from '@mantine/core';
+import { Container, Menu} from '@mantine/core';
 import { IconSettings } from '@tabler/icons-react';
 import { getAuth, signOut} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Avatar } from '@mantine/core';
+// import { BiUserCircle } from 'react-icons/fa';
+
 
 
 
 const Navbar = () => {
 
   const auth = getAuth();
+  
+  const checkUser = auth.currentUser;
 
   const navigate = useNavigate();
 
@@ -23,6 +28,8 @@ const Navbar = () => {
     }
   }
 
+  
+
   return (
     <Container size="lg">
         <div className='navbar'>
@@ -33,17 +40,24 @@ const Navbar = () => {
         }}>
             <li><Link to="/">Explore</Link></li>
             <li><Link to="/offers">Offer</Link></li>
-            <li><Link to="/profile">
+            {checkUser && <li>
              <Menu shadow="md" width={100}>
                 <Menu.Target>
-                  <Button>Profile</Button>
+                  
+                  <Avatar color="cyan" radius="xl">
+                    {checkUser.displayName.slice(0,1)}
+                  </Avatar>
                 </Menu.Target>
-
+               
                 <Menu.Dropdown>
+                  <Link to="/profile">
+                  <Menu.Item>Profile</Menu.Item>
+                  </Link>
                   <Menu.Item onClick={onLogout} icon={<IconSettings size={14} />}>Logout</Menu.Item>
                 </Menu.Dropdown>
+          
               </Menu>  
-            </Link></li>
+            </li>}
         </ul>
         </div>
     </Container>

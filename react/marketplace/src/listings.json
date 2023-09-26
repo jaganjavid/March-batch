@@ -1,0 +1,48 @@
+{
+	"listings": [
+		{
+			"name": "ECR House",
+			"type": "rent",
+			"userRef": "ID OF A USER",
+			"bedrooms": 2,
+			"bathrooms": 2,
+			"parking": true,
+			"furnished": true,
+			"offer": true,
+			"regularPrice": 2500,
+			"discountedPrice": 2000,
+			"location": "street 1 chennai",
+			"imageUrls": [],
+			"timestamp": "00:00:00"
+		},
+		{
+			"name": "Big House",
+			"type": "sale",
+			"userRef": "ID OF A USER",
+			"bedrooms": 4,
+			"bathrooms": 3,
+			"parking": true,
+			"furnished": false,
+			"offer": false,
+			"regularPrice": 650000,
+			"location": "street 2 chennai",
+			"imageUrls": [],
+			"timestamp": "00:00:00"
+		},
+		{
+			"name": "Small House",
+			"type": "sale",
+			"userRef": "ID OF A USER",
+			"bedrooms": 4,
+			"bathrooms": 2,
+			"parking": true,
+			"furnished": false,
+			"offer": true,
+			"regularPrice": 700000,
+			"discountedPrice": 690000,
+			"location": "street 3 chennai",
+			"imageUrls": [],
+			"timestamp": "00:00:00"
+		}
+	]
+}
